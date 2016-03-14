@@ -1,0 +1,127 @@
+#define _USE_MATH_DEFINES
+
+#include <stdlib.h>
+#include <math.h>
+
+class n_angle
+{
+private:
+	double radius, x, y;
+	int n;
+
+public:
+	//получаем величину стороны n-угольника
+	double get_side();
+	
+	//получаем площадь n-угольника
+	double get_area();
+	//получаем периметр n-угольника
+	double get_perimeter();
+
+
+	//перемещение ценра в новые координаты
+	void move(double x_, double y_);
+	
+	//изменение размеров на какую-либо величину (т.е. +- какое-то число)
+	void resizing_by_side(double x);
+	void resizing_by_rad(double x);
+	
+	//перегрузка оператора сравнения двух n-угольников
+	n_angle operator== (n_angle n);
+	
+	//определение пересечения двух n-угольников
+	bool crossing(n_angle second);
+	
+	//определение вхождения n-угольника second в наш n-угольник
+	bool accessory(n_angle second);
+
+	//определяем квадрат ли
+	bool is_it_square();
+	
+
+	//конструктор класса
+	n_angle(double rad, int n_, double x_ = 0, double y_ = 0);
+
+	//вывод параметров
+	void return_parameters();
+
+
+
+	//сравниваем по площади наш n-угольник и эллипс
+	friend n_angle operator== (n_angle n, ellipse el);
+	//определение пересечения эллипса и n-угольника
+	friend crossing(n_angle n, ellipse el);
+	//определение вхождения эллипса в n-угольник
+	friend accessory(n_angle n, ellipse el);
+};
+
+class ellipse
+{
+private:
+	double major_axis, minor_axis, x, y;
+
+public:
+	//получаем площадь эллипса
+	double get_area();
+	//получаем периметр эллипса
+	double get_perimeter();
+
+
+	//перемещение ценра в новые координаты
+	void move(double x_, double y_);
+
+	//изменение размеров на какую-либо величину (т.е. +- какое-то число)
+	void resizing(double x, double y = 0)
+	{
+		major_axis += x;
+		minor_axis += y;
+	}
+
+	//перегрузка оператора сравнения двух эллипсов
+	ellipse operator== (ellipse second);
+
+	//определение пересечения двух эллипсов
+	bool crossing(ellipse second);
+
+	//определения вхождение эллипса second в наш эллипс
+	bool accessory(ellipse second);
+
+	//определяем круг ли
+	bool is_it_circle();
+
+
+	//конструктор класса
+	ellipse(double a, double b, double x_ = 0, double y_ = 0)
+	{
+		major_axis = a;
+		minor_axis = b;
+		x = x_;
+		y = y_;
+	}
+
+	//вывод параметров
+	void return_parameters();
+
+
+
+	//сравниваем по площади наш эллипс и n-угольник
+	friend ellipse operator== (ellipse el, n_angle n);
+	//определение пересечения эллипса и n-угольника
+	friend crossing(ellipse el, n_angle n);
+	//определение вхождения n-угольника в эллипс
+	friend accessory(ellipse el, n_angle n);
+};
+
+//их надо проверить, в них я что-то не уверен
+
+n_angle operator== (n_angle n, ellipse el)
+{
+	if (n.get_area() == el.get_area()) return true;
+	else return false;
+}
+ellipse operator== (ellipse el, n_angle n)
+{
+	if (n.get_area() == el.get_area()) return true;
+	else return false;
+}
+
