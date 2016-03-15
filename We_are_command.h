@@ -68,6 +68,8 @@ public:
 	double get_area();
 	//получаем периметр эллипса
 	double get_perimeter();
+	//получаем радиус эллипса
+	double get_radius();
 
 
 	//перемещение ценра в новые координаты
