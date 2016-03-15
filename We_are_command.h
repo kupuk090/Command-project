@@ -10,6 +10,27 @@ private:
 	int n;
 
 public:
+	//возвращаем радиус описанной окружности
+	double get_radius()
+	{
+		return radius;
+	}
+	//возвращаем x координату центра
+	double get_x()
+	{
+		return x;
+	}
+	//возвращаем y координату центра
+	double get_y()
+	{
+		return y;
+	}
+	//возвращаем n
+	int get_n()
+	{
+		return n;
+	}
+
 	//получаем величину стороны n-угольника
 	double get_side();
 	
@@ -64,6 +85,27 @@ private:
 	double major_axis, minor_axis, x = 0, y = 0;
 
 public:
+	//возвращаем major_axis
+	double get_major_axis()
+	{
+		return major_axis;
+	}
+	//возвращаем minor_axis
+	double get_minor_axis()
+	{
+		return minor_axis;
+	}
+	//возвращаем x координату центра
+	double get_x()
+	{
+		return x;
+	}
+	//возвращаем y координату центра
+	double get_y()
+	{
+		return y;
+	}
+
 	//получаем площадь эллипса
 	double get_area();
 	//получаем периметр эллипса
