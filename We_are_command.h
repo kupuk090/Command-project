@@ -6,7 +6,7 @@
 class n_angle
 {
 private:
-	double radius, x, y;
+	double radius, x = 0, y = 0;
 	int n;
 
 public:
@@ -49,16 +49,19 @@ public:
 
 	//сравниваем по площади наш n-угольник и эллипс
 	friend n_angle operator== (n_angle n, ellipse el);
+	friend n_angle operator== (ellipse el, n_angle n);
 	//определение пересечения эллипса и n-угольника
 	friend crossing(n_angle n, ellipse el);
+	friend crossing(ellipse el, n_angle n);
 	//определение вхождения эллипса в n-угольник
 	friend accessory(n_angle n, ellipse el);
+	friend crossing(ellipse el, n_angle n);
 };
 
 class ellipse
 {
 private:
-	double major_axis, minor_axis, x, y;
+	double major_axis, minor_axis, x = 0, y = 0;
 
 public:
 	//получаем площадь эллипса
@@ -103,13 +106,14 @@ public:
 	void return_parameters();
 
 
-
+	/*
 	//сравниваем по площади наш эллипс и n-угольник
 	friend ellipse operator== (ellipse el, n_angle n);
 	//определение пересечения эллипса и n-угольника
 	friend crossing(ellipse el, n_angle n);
 	//определение вхождения n-угольника в эллипс
 	friend accessory(ellipse el, n_angle n);
+	*/
 };
 
 //их надо проверить, в них я что-то не уверен
