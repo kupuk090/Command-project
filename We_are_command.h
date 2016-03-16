@@ -7,6 +7,7 @@ class n_angle
 {
 private:
 	double radius, x = 0, y = 0;
+	double angle = 0;
 	int n;
 
 public:
@@ -29,6 +30,11 @@ public:
 	int get_n()
 	{
 		return n;
+	}
+	//возвращаем угол поворота первой вершины относительно оси Ох
+	double get_angle()
+	{
+		return angle;
 	}
 
 	//получаем величину стороны n-угольника
@@ -83,6 +89,7 @@ class ellipse
 {
 private:
 	double major_axis, minor_axis, x = 0, y = 0;
+	double angle = 0;
 
 public:
 	//возвращаем major_axis
@@ -104,6 +111,11 @@ public:
 	double get_y()
 	{
 		return y;
+	}
+	//возвращаем угол поворота major_axis относительно оси Ох
+	double get_angle()
+	{
+		return angle;
 	}
 
 	//получаем площадь эллипса
@@ -148,16 +160,6 @@ public:
 
 	//вывод параметров
 	void return_parameters();
-
-
-	/*
-	//сравниваем по площади наш эллипс и n-угольник
-	friend ellipse operator== (ellipse el, n_angle n);
-	//определение пересечения эллипса и n-угольника
-	friend crossing(ellipse el, n_angle n);
-	//определение вхождения n-угольника в эллипс
-	friend accessory(ellipse el, n_angle n);
-	*/
 };
 
 //их надо проверить, в них я что-то не уверен
