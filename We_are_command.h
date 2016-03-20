@@ -3,6 +3,9 @@
 #include <stdlib.h>
 #include <math.h>
 
+#ifndef WE_ARE_COMMAND_H
+#define WE_ARE_COMMAND_H
+
 class n_angle
 {
 private:
@@ -20,10 +23,7 @@ public:
 	//возвращаем n
 	int get_n();
 	//возвращаем угол поворота первой вершины относительно оси ќх
-	double get_angle()
-	{
-		return angle;
-	}
+	double get_angle();
 
 	//получаем величину стороны n-угольника
 	double get_side();
@@ -56,21 +56,14 @@ public:
 
 	//конструктор класса
 	n_angle(double rad, int n_, double x_ = 0, double y_ = 0);
+	
 
 	//вывод параметров
 	void return_parameters();
 
 
 
-	//сравниваем по площади наш n-угольник и эллипс
-	friend bool operator== (n_angle n, ellipse el);
-	friend bool operator== (ellipse el, n_angle n);
-	//определение пересечени€ эллипса и n-угольника
-	friend bool crossing(n_angle n, ellipse el);
-	friend bool crossing(ellipse el, n_angle n);
-	//определение вхождени€ эллипса в n-угольник
-	friend bool accessory(n_angle n, ellipse el);
-	friend bool accessory(ellipse el, n_angle n);
+	
 };
 
 class ellipse
@@ -89,17 +82,14 @@ public:
 	//возвращаем y координату центра
 	double get_y();
 	//возвращаем угол поворота major_axis относительно оси ќх
-	double get_angle()
-	{
-		return angle;
-	}
+	double get_angle();
 
 	//получаем площадь эллипса
 	double get_area();
 	//получаем периметр эллипса
 	double get_perimeter();
-	//получаем радиус эллипса
-	double get_radius();
+	//получаем радиус эллипса к точке лежащей на пр€мой, соедин€ющей центры рассматриваемого эллипса и другой фигуры
+	double get_radius(double major, double minor, double x1, double y1, double x2, double y2);
 
 
 	//перемещение ценра в новые координаты
@@ -109,7 +99,7 @@ public:
 	void resizing(double x, double y = 0);
 
 	//перегрузка оператора сравнени€ двух эллипсов
-	ellipse operator== (ellipse second);
+	bool operator== (ellipse second);
 
 	//определение пересечени€ двух эллипсов
 	bool crossing(ellipse second);
@@ -126,18 +116,20 @@ public:
 
 	//вывод параметров
 	void return_parameters();
+
+
+
+
+	//сравниваем по площади наш n-угольник и эллипс
+	friend bool operator== (n_angle n, ellipse el);
+	friend bool operator== (ellipse el, n_angle n);
+	//определение пересечени€ эллипса и n-угольника
+	friend bool crossing(n_angle n, ellipse el);
+	friend bool crossing(ellipse el, n_angle n);
+	//определение вхождени€ эллипса в n-угольник
+	friend bool accessory(n_angle n, ellipse el);
+	friend bool accessory(ellipse el, n_angle n);
 };
 
-//их надо проверить, в них € что-то не уверен
 
-n_angle operator== (n_angle n, ellipse el)
-{
-	if (n.get_area() == el.get_area()) return true;
-	else return false;
-}
-ellipse operator== (ellipse el, n_angle n)
-{
-	if (n.get_area() == el.get_area()) return true;
-	else return false;
-}
-
+#endif
