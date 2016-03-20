@@ -12,25 +12,13 @@ private:
 
 public:
 	//возвращаем радиус описанной окружности
-	double get_radius()
-	{
-		return radius;
-	}
+	double get_radius();
 	//возвращаем x координату центра
-	double get_x()
-	{
-		return x;
-	}
+	double get_x();
 	//возвращаем y координату центра
-	double get_y()
-	{
-		return y;
-	}
+	double get_y();
 	//возвращаем n
-	int get_n()
-	{
-		return n;
-	}
+	int get_n();
 	//возвращаем угол поворота первой вершины относительно оси Ох
 	double get_angle()
 	{
@@ -54,7 +42,7 @@ public:
 	void resizing_by_rad(double x);
 	
 	//перегрузка оператора сравнения двух n-угольников
-	n_angle operator== (n_angle n);
+	bool operator== (n_angle n);
 	
 	//определение пересечения двух n-угольников
 	bool crossing(n_angle second);
@@ -75,14 +63,14 @@ public:
 
 
 	//сравниваем по площади наш n-угольник и эллипс
-	friend n_angle operator== (n_angle n, ellipse el);
-	friend n_angle operator== (ellipse el, n_angle n);
+	friend bool operator== (n_angle n, ellipse el);
+	friend bool operator== (ellipse el, n_angle n);
 	//определение пересечения эллипса и n-угольника
-	friend crossing(n_angle n, ellipse el);
-	friend crossing(ellipse el, n_angle n);
+	friend bool crossing(n_angle n, ellipse el);
+	friend bool crossing(ellipse el, n_angle n);
 	//определение вхождения эллипса в n-угольник
-	friend accessory(n_angle n, ellipse el);
-	friend crossing(ellipse el, n_angle n);
+	friend bool accessory(n_angle n, ellipse el);
+	friend bool accessory(ellipse el, n_angle n);
 };
 
 class ellipse
@@ -93,25 +81,13 @@ private:
 
 public:
 	//возвращаем major_axis
-	double get_major_axis()
-	{
-		return major_axis;
-	}
+	double get_major_axis();
 	//возвращаем minor_axis
-	double get_minor_axis()
-	{
-		return minor_axis;
-	}
+	double get_minor_axis();
 	//возвращаем x координату центра
-	double get_x()
-	{
-		return x;
-	}
+	double get_x();
 	//возвращаем y координату центра
-	double get_y()
-	{
-		return y;
-	}
+	double get_y();
 	//возвращаем угол поворота major_axis относительно оси Ох
 	double get_angle()
 	{
@@ -130,11 +106,7 @@ public:
 	void move(double x_, double y_);
 
 	//изменение размеров на какую-либо величину (т.е. +- какое-то число)
-	void resizing(double x, double y = 0)
-	{
-		major_axis += x;
-		minor_axis += y;
-	}
+	void resizing(double x, double y = 0);
 
 	//перегрузка оператора сравнения двух эллипсов
 	ellipse operator== (ellipse second);
@@ -150,13 +122,7 @@ public:
 
 
 	//конструктор класса
-	ellipse(double a, double b, double x_ = 0, double y_ = 0)
-	{
-		major_axis = a;
-		minor_axis = b;
-		x = x_;
-		y = y_;
-	}
+	ellipse(double a, double b, double x_ = 0, double y_ = 0);
 
 	//вывод параметров
 	void return_parameters();
