@@ -314,8 +314,7 @@ using namespace std;
 	 //определяем круг ли
 	 bool ellipse::is_it_circle()
 	 {
-		 if (major_axis = minor_axis)
-			 return true;
+		 if (abs(major_axis - minor_axis) < 0.000000001)			 return true;
 		 else
 			 return false;
 	 }
