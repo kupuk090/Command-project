@@ -1,49 +1,49 @@
-	#include "stdafx.h"
-     #include <math.h>
+п»ї	#include "We_are_command.h"
+    #include <math.h>
 	
-     //возвращаем радиус описанной окружности
+    //РІРѕР·РІСЂР°С‰Р°РµРј СЂР°РґРёСѓСЃ РѕРїРёСЃР°РЅРЅРѕР№ РѕРєСЂСѓР¶РЅРѕСЃС‚Рё
 	double n_angle:: get_radius()
 	{
 		return radius;
 	}
 	
-	//возвращаем x координату центра
+	//РІРѕР·РІСЂР°С‰Р°РµРј x РєРѕРѕСЂРґРёРЅР°С‚Сѓ С†РµРЅС‚СЂР°
 	double n_angle:: get_x()
 	{
 		return x;
 	}
 	
-	//возвращаем y координату центра
+	//РІРѕР·РІСЂР°С‰Р°РµРј y РєРѕРѕСЂРґРёРЅР°С‚Сѓ С†РµРЅС‚СЂР°
 	double n_angle:: get_y()
 	{
 		return y;
 	}
 	
-	//возвращаем n
+	//РІРѕР·РІСЂР°С‰Р°РµРј n
 	int n_angle:: get_n()
 	{
 		return n;
 	}
 
-	//получаем величину стороны n-угольника
+	//РїРѕР»СѓС‡Р°РµРј РІРµР»РёС‡РёРЅСѓ СЃС‚РѕСЂРѕРЅС‹ n-СѓРіРѕР»СЊРЅРёРєР°
 	double n_angle :: get_side()
 	{
 		return 2 * radius * sin(M_PI / n);
 	}
 
-	//получаем площадь n-угольника
+	//РїРѕР»СѓС‡Р°РµРј РїР»РѕС‰Р°РґСЊ n-СѓРіРѕР»СЊРЅРёРєР°
 	double n_angle::get_area()
 	{
 		return (n / 2)*pow(radius,2)*sin(2 * M_PI / n);
 	}
 	
-	//получаем периметр n-угольника
+	//РїРѕР»СѓС‡Р°РµРј РїРµСЂРёРјРµС‚СЂ n-СѓРіРѕР»СЊРЅРёРєР°
 	double n_angle::get_perimeter()
 	{
 		return get_side()*n;
 	}
 	
-	//получаем параметры n-угольника
+	//РїРѕР»СѓС‡Р°РµРј РїР°СЂР°РјРµС‚СЂС‹ n-СѓРіРѕР»СЊРЅРёРєР°
 	void n_angle :: return_parameters()
 	{
 		cout << "parametrs of n-angle:\n";
@@ -59,14 +59,14 @@
 			 << get_n();
 	}
 	
-	//перемещение ценра в новые координаты
+	//РїРµСЂРµРјРµС‰РµРЅРёРµ С†РµРЅСЂР° РІ РЅРѕРІС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
 	void n_angle:: move(double x_, double y_)
 	{
 		x = x_;
 		y = y_;
 	}
 	
-	//изменение размеров на какую-либо величину 
+	//РёР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ РЅР° РєР°РєСѓСЋ-Р»РёР±Рѕ РІРµР»РёС‡РёРЅСѓ 
 	void n_angle:: resizing_by_side(double a)
 	{
 		radius = (get_side() + a) / 2 / sin(M_PI / n);
@@ -77,7 +77,7 @@
 		radius = radius + a;
 	}
 	
-	//перегрузка оператора сравнения двух n-угольников
+	//РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ РґРІСѓС… n-СѓРіРѕР»СЊРЅРёРєРѕРІ
 	bool n_angle::operator== (n_angle n)
 	{
 		if ((this->radius == n.radius) && (this->n == n.n))
@@ -90,7 +90,7 @@
 		}
 	}
 	
-	//определение пересечения двух n-угольников
+	//РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РґРІСѓС… n-СѓРіРѕР»СЊРЅРёРєРѕРІ
 	bool n_angle :: crossing(n_angle second)
 	{
 		double l;
@@ -106,7 +106,7 @@
 
 	}
 	
-	//определения вхождения n-угольника second в n-угольник first
+	//РѕРїСЂРµРґРµР»РµРЅРёСЏ РІС…РѕР¶РґРµРЅРёСЏ n-СѓРіРѕР»СЊРЅРёРєР° second РІ n-СѓРіРѕР»СЊРЅРёРє first
 	bool n_angle :: accessory(n_angle second)
 	{
 		double l;
@@ -130,7 +130,7 @@
 		
 	}
 	
-	//определяем квадрат ли
+	//РѕРїСЂРµРґРµР»СЏРµРј РєРІР°РґСЂР°С‚ Р»Рё
 	bool n_angle:: is_it_square()
 	{
 		if (n == 4) 
@@ -152,65 +152,65 @@
 	}
 	
 	
-	//функция знака
+	//С„СѓРЅРєС†РёСЏ Р·РЅР°РєР°
 	int Sign(double x)
 	{
 		return x < 0 ? -1 : ((x == 0) ? 0 : 1);
 	}
 	
 	
-    //возвращаем major_axis
+    //РІРѕР·РІСЂР°С‰Р°РµРј major_axis
 	double ellipse:: get_major_axis()
 	{
 		return major_axis;
 	}
 	
-	//возвращаем minor_axis
+	//РІРѕР·РІСЂР°С‰Р°РµРј minor_axis
 	double ellipse:: get_minor_axis()
 	{
 		return minor_axis;
 	}
 	
-	//возвращаем x координату центра
+	//РІРѕР·РІСЂР°С‰Р°РµРј x РєРѕРѕСЂРґРёРЅР°С‚Сѓ С†РµРЅС‚СЂР°
 	double ellipse:: get_x()
 	{
 		return x;
 	}
 	
-	//возвращаем y координату центра
+	//РІРѕР·РІСЂР°С‰Р°РµРј y РєРѕРѕСЂРґРёРЅР°С‚Сѓ С†РµРЅС‚СЂР°
 	double ellipse:: get_y()
 	{
 		return y;
 	}
 
-	 //получаем площадь эллипса
+	 //РїРѕР»СѓС‡Р°РµРј РїР»РѕС‰Р°РґСЊ СЌР»Р»РёРїСЃР°
 	 double ellipse::get_area()
 	 {
 		 return major_axis*minor_axis*M_PI;	 
 	 }
 	 
-	 //получаем периметр эллипса
+	 //РїРѕР»СѓС‡Р°РµРј РїРµСЂРёРјРµС‚СЂ СЌР»Р»РёРїСЃР°
 	 double ellipse::get_perimeter()
 	 {
 		 return (4 * (major_axis*minor_axis*M_PI + pow((major_axis - minor_axis), 2)) / (major_axis + minor_axis));
 	 
 	 }
 	 
-	 //перемещение ценра в новые координаты
+	 //РїРµСЂРµРјРµС‰РµРЅРёРµ С†РµРЅСЂР° РІ РЅРѕРІС‹Рµ РєРѕРѕСЂРґРёРЅР°С‚С‹
 	 void ellipse::move(double x_, double y_)
 	 {
 		 x = x_;
 		 y = y_;
 	 }
 
-	 //изменение размеров на какую-либо величину 
+	 //РёР·РјРµРЅРµРЅРёРµ СЂР°Р·РјРµСЂРѕРІ РЅР° РєР°РєСѓСЋ-Р»РёР±Рѕ РІРµР»РёС‡РёРЅСѓ 
 	 void ellipse:: resizing(double x, double y )
 	 {
 		 major_axis += x;
 		 minor_axis += y;
 	 }
 
-	 //перегрузка оператора сравнения двух эллипсов
+	 //РїРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° СЃСЂР°РІРЅРµРЅРёСЏ РґРІСѓС… СЌР»Р»РёРїСЃРѕРІ
 	 bool ellipse::operator== (ellipse second)
 	 {
 		 if (this->get_major_axis() != second.get_major_axis())
@@ -230,7 +230,7 @@
 			
 		 }
 	
-	 //определение пересечения двух эллипсов
+	 //РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёСЏ РґРІСѓС… СЌР»Р»РёРїСЃРѕРІ
 	 bool ellipse::crossing(ellipse second)
 	 {
 		 double a = this->get_major_axis();
@@ -254,7 +254,7 @@
 		 return false;
  }
 	
-	 //определение принадлежности точек 
+	 //РѕРїСЂРµРґРµР»РµРЅРёРµ РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚Рё С‚РѕС‡РµРє 
 	 bool ellipse::beloning_el(ellipse second, double x, double y)
 	 {
 		 double a = this->get_major_axis();
@@ -274,7 +274,7 @@
 			 return false;
 	 }
 	 
-	 //определения вхождение эллипса second в наш эллипс
+	 //РѕРїСЂРµРґРµР»РµРЅРёСЏ РІС…РѕР¶РґРµРЅРёРµ СЌР»Р»РёРїСЃР° second РІ РЅР°С€ СЌР»Р»РёРїСЃ
 	 bool  ellipse::accessory(ellipse second)
 	 {
 		 double c = second.major_axis;
@@ -290,7 +290,7 @@
 			 return false;
 	  }
 	 
-	 //определяем круг ли
+	 //РѕРїСЂРµРґРµР»СЏРµРј РєСЂСѓРі Р»Рё
 	 bool ellipse::is_it_circle()
 	 {
 		 if (abs(major_axis - minor_axis) < 0.000000001)
@@ -299,7 +299,7 @@
 			 return false;
 	 }
 
-	 //вывод параметров
+	 //РІС‹РІРѕРґ РїР°СЂР°РјРµС‚СЂРѕРІ
 	 void ellipse :: return_parameters()
 	 {
 		 cout << "parametrs of n-angle:\n";
@@ -314,7 +314,7 @@
 		
 	 }
 	 
-	 //получаем радиус эллипса
+	 //РїРѕР»СѓС‡Р°РµРј СЂР°РґРёСѓСЃ СЌР»Р»РёРїСЃР°
 	 double ellipse:: get_radius(double a, double b, double x1, double y1, double x2, double y2)
 	 {
 		  double dx=x2-x1;
@@ -324,7 +324,7 @@
 		  return a*b / sqrt((b*b*dx*dx/(dx*dx+dy*dy))+(a*a*dy*dy/(dx*dx+dy*dy)));
 	 }
 
-	 //конструктор класса
+	 //РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ РєР»Р°СЃСЃР°
 	 ellipse::ellipse(double a, double b, double x_, double y_)
 	 {
 		 major_axis = a;
@@ -333,7 +333,7 @@
 		 y = y_;
 	 }
 	 
-	 //сравниваем по площади наш n-угольник и эллипс
+	 //СЃСЂР°РІРЅРёРІР°РµРј РїРѕ РїР»РѕС‰Р°РґРё РЅР°С€ n-СѓРіРѕР»СЊРЅРёРє Рё СЌР»Р»РёРїСЃ
 	 bool operator== (n_angle n, ellipse el)
 	 {
 		 if (el == n ) 
@@ -353,7 +353,7 @@
 			 return false;
 	 }
 
-	 //определение пересечения эллипса и n-угольника
+	 //РѕРїСЂРµРґРµР»РµРЅРёРµ РїРµСЂРµСЃРµС‡РµРЅРёСЏ СЌР»Р»РёРїСЃР° Рё n-СѓРіРѕР»СЊРЅРёРєР°
 	 bool crossing(n_angle n, ellipse el)
 	 {
 		 double a = el.get_major_axis();
@@ -385,7 +385,7 @@
 			 return false;
 	 }
 
-	 //определение принадлежности точек 
+	 //РѕРїСЂРµРґРµР»РµРЅРёРµ РїСЂРёРЅР°РґР»РµР¶РЅРѕСЃС‚Рё С‚РѕС‡РµРє 
 	 bool ellipse::beloning_n(n_angle second, double x, double y)
 	 {
 		 double a = this->get_major_axis();
@@ -405,7 +405,7 @@
 			 return false;
 	 }
 	 
-	 //определение вхождения эллипса в n-угольник
+	 //РѕРїСЂРµРґРµР»РµРЅРёРµ РІС…РѕР¶РґРµРЅРёСЏ СЌР»Р»РёРїСЃР° РІ n-СѓРіРѕР»СЊРЅРёРє
 	 bool accessory(ellipse el, n_angle n)
 	 {
 		 double a = el.get_major_axis();
