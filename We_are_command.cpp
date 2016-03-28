@@ -282,7 +282,7 @@ bool ellipse::crossing(ellipse second)
 		double f = pow((a*cos(t) + x0), 2) / (c*c) + pow(b*sin(t) + y0, 2) / (d*d) - 1;
 		double tmp = 0;
 
-		while (t < 2 * M_PI)
+		while (t < 6.28)
 		{
 			tmp = f;
 			t = t + 0.001;
@@ -377,7 +377,7 @@ bool crossing(n_angle n, ellipse el)
 	double f = pow((a*cos(t) + x0), 2) / (c*c) + pow(b*sin(t) + y0, 2) / (d*d) - 1;
 	double tmp = 0;
 
-	while (t < 2 * M_PI)
+	while (t < 6.28)
 	{
 		tmp = f;
 		t = t + 0.001;
