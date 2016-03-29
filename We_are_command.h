@@ -17,45 +17,45 @@ private:
 
 public:
 	//возвращаем радиус описанной окружности
-	double get_radius();
+	double get_radius() const;
 	//возвращаем x координату центра
-	double get_x();
+	double get_x() const;
 	//возвращаем y координату центра
-	double get_y();
+	double get_y() const;
 	//возвращаем n
-	int get_n();
+	int get_n() const;
 
 	//получаем величину стороны n-угольника
-	double get_side();
+	double get_side() const;
 	
 	//получаем площадь n-угольника
-	double get_area();
+	double get_area() const;
 	//получаем периметр n-угольника
-	double get_perimeter();
+	double get_perimeter() const;
 
 
 	//перемещение ценра в новые координаты
-	void move(double x_, double y_);
+	void move(const double x_, const double y_);
 	
 	//изменение размеров на какую-либо величину (т.е. +- какое-то число)
-	void resizing_by_side(double x);
-	void resizing_by_rad(double x);
+	void resizing_by_side(const double x);
+	void resizing_by_rad(const double x);
 	
 	//перегрузка оператора сравнения двух n-угольников
-	bool operator== (n_angle n);
+	bool operator== (const n_angle& n);
 	
 	//определение пересечения двух n-угольников
-	bool crossing(n_angle second);
+	bool crossing(const n_angle& second);
 	
 	//определение вхождения n-угольника second в наш n-угольник
-	bool accessory(n_angle second);
+	bool accessory(const n_angle& second);
 
 	//определяем квадрат ли
 	bool is_it_square();
 	
 
 	//конструктор класса
-	n_angle(double rad, int n_, double x_ = 0, double y_ = 0);
+	n_angle(const double rad, const int n_, const double x_ = 0, const double y_ = 0);
 	
 
 	//вывод параметров
@@ -69,41 +69,41 @@ private:
 
 public:
 	//возвращаем major_axis
-	double get_major_axis();
+	double get_major_axis() const;
 	//возвращаем minor_axis
-	double get_minor_axis();
+	double get_minor_axis() const;
 	//возвращаем x координату центра
-	double get_x();
+	double get_x() const;
 	//возвращаем y координату центра
-	double get_y();
+	double get_y() const;
 
 	//получаем площадь эллипса
-	double get_area();
+	double get_area() const;
 	//получаем периметр эллипса
-	double get_perimeter();
+	double get_perimeter() const;
 	
 
 	//перемещение ценра в новые координаты
-	void move(double x_, double y_);
+	void move(const double x_, const double y_);
 
 	//изменение размеров на какую-либо величину (т.е. +- какое-то число)
-	void resizing(double x, double y = 0);
+	void resizing(const double x, const double y = 0);
 
 	//перегрузка оператора сравнения двух эллипсов
-	bool operator== (ellipse second);
+	bool operator== (const ellipse& second);
 
 	//определение пересечения двух эллипсов
-	bool crossing(ellipse second);
+	bool crossing(const ellipse& second);
 
 	//определения вхождение эллипса second в наш эллипс
-	bool accessory(ellipse second);
+	bool accessory(const ellipse& second);
 
 	//определяем круг ли
 	bool is_it_circle();
 
 
 	//конструктор класса
-	ellipse(double a, double b, double x_ = 0, double y_ = 0);
+	ellipse(const double a, const double b, const double x_ = 0, const double y_ = 0);
 
 	//вывод параметров
 	void return_parameters();
@@ -112,18 +112,18 @@ public:
 
 
 	//сравниваем по площади наш n-угольник и эллипс
-	friend bool operator== (n_angle n, ellipse el);
-	friend bool operator== (ellipse el, n_angle n);
+	friend bool operator== (const n_angle& n, const ellipse& el);
+	friend bool operator== (const ellipse& el, const n_angle& n);
 	//определение пересечения эллипса и n-угольника
-	friend bool crossing(n_angle n, ellipse el);
-	friend bool crossing(ellipse el, n_angle n);
+	friend bool crossing(const n_angle& n, const ellipse& el);
+	friend bool crossing(const ellipse& el, const n_angle& n);
 	//определение вхождения эллипса в n-угольник
-	friend bool accessory(n_angle n, ellipse el);
-	friend bool accessory(ellipse el, n_angle n);
+	friend bool accessory(const n_angle& n, const ellipse& el);
+	friend bool accessory(const ellipse& el, const n_angle& n);
 
 	//определение принадлежности точек 
-	bool beloning_el(ellipse second, double x, double y);
-	bool beloning_n(n_angle second, double x, double y);
+	bool beloning_el(const ellipse& second, const double x, const double y) const;
+	bool beloning_n(const n_angle& second, const double x, const double y) const;
 };
 
 int Sign(double x);
